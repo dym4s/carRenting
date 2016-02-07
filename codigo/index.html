@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CarRenting</title>
+
+	<!-- CSS de Bootstrap -->
+	<link href="bootstrap-3.3.5-dist/css/bootstrap.css" rel="stylesheet">
+	<!-- CSS -->
+	<link rel="stylesheet" href="css\estilo.css">
+	<link rel="stylesheet" href="css\animate.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap-theme.css">
+	
+	<!-- scripts -->
+	<script type="text/javascript" src="js/objetos.js"></script>
+	<script type="text/javascript" src="js/codigo.js"></script>	
+	<script type="text/javascript" src="js/pruebas.js" ></script>
+
+
+	<title>CarRenting</title>
+</head>
+
+<body>
+	<div class="container">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<nav class="navbar navbar-default" role="navigation">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand titulo" href="#">CarRenting</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-ex1-collapse">
+					<ul class="nav navbar-nav">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Cliente <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a id="aFormularioAltaCliente" href="#">Alta</a></li>
+								<li><a id="aFormularioModificacion" href="#">Modificacion</a></li>
+								<li><a id="aFormularioBorrar" href="#">Borrar</a></li>
+
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Vehiculo <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="#" id="altaV" >Alta</a></li>
+								<li><a href="#" id="modV"  >Modificacion</a></li>
+								<li><a href="#" id="borrV" >Borrar</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Alquiler <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a id="aFormAluiler"href="#">Alta</a></li>
+								<li><a id="aFormBorrarAlquiler"  href="#">Borrar</a></li>
+
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Seguros <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="#" id="altaS" >Alta</a></li>
+								<li><a href="#" id="modS"  >Modificacion</a></li>
+								<li><a href="#" id="borrS" >Borrar</a></li>
+
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Listados <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a id="listadoClientes" href="#">Clientes</a></li>
+								<li><a id="listadoV" href="#">Vehiculos alquilados</a></li>
+								<li><a id="listadoVDis" href="#">Vehiculos disponibles</a></li>
+								<li><a id="listadoAl" href="#">Alquileres</a></li>
+								<li><a id="listadoS" href="#">Seguros</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</nav>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="contenido">
+			<div class="col-xs-12 col-sm-8" id="contForm">
+				<!-- Formulario Modificacion Cliente -->
+				<div class="panel panel-default" id="capaFormSelectCliente">
+					<div class="panel-heading ">
+						<h3 class="panel-title">Modificacion Cliente</h3>
+					</div>
+					<div class="panel-body">						
+						<form class="form-horizontal" role="form" name="form">
+							<div class="form-group">
+								<label for="dni" class="col-lg-2 control-label">DNI</label>
+								<div class="col-lg-10">
+									<select id="clientesModificar" class="form-control">
+									</select>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- Fin Formulario Modificacion cliente -->
+				<!-- Formulario Alta cliente -->
+				<div class="panel panel-default" id="formularioCliente">
+					<div class="panel-heading">
+						<h3 class="panel-title" id="tituloFormCliente">Alta CLiente</h3>
+					</div>
+					<div class="panel-body">						
+						<form class="form-horizontal" role="form" id="formAltaCliente">
+							<div class="form-group" id="tipoCliente">
+								<div class="col-lg-10 col-md-offset-2">
+									<select name="selectIdCliente">
+										<option value="1">Particular</option>
+										<option value="2">Empresa</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<div id="lblDni"><label for="dni" class="col-lg-2 control-label">DNI</label></div>
+								<div id="lblCif"><label for="dni" class="col-lg-2 control-label" >Cif</label></div>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" name="txtDNI"
+									placeholder="DNI" value="11">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="nombre" class="col-lg-2 control-label">Nombre</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" name="txtNombre"
+									placeholder="Nombre" value="Daniel">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="direccion" class="col-lg-2 control-label">Direccion</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" name="txtDireccion"
+									placeholder="Direccion" value="Mi casa">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="telfono" class="col-lg-2 control-label">Telefono</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" name="txtTelefono"
+									placeholder="Telefono" value="123">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="email" class="col-lg-2 control-label">Email</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" name="txtEmail"
+									placeholder="Email" value="dan@dan.es">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-lg-offset-2 col-lg-10">
+									<input name="btnAltaCliente" id="btnAltaCliente" type="button" class="btn btn-default" value="Entrar">
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- Fin formulario Alta Cliente -->
+				<!-- Formulario Borrar Cliente -->
+				<div class="panel panel-default" id="capaFormSelectClienteBorrar">
+					<div class="panel-heading ">
+						<h3 class="panel-title">Borrar Cliente</h3>
+					</div>
+					<div class="panel-body">						
+						<form class="form-horizontal" role="form" name="formBorrarCliente">
+							<div class="form-group">
+								<label for="dni" class="col-lg-2 control-label">DNI</label>
+								<div class="col-lg-10">
+									<select id="clientesBorrar" class="form-control" name="selectBorrarCliente">
+									</select>
+								</div>
+							</div>
+							<div class="form-group" id="capaBtnSelectCliente">
+								<div class="col-lg-offset-2 col-lg-10">
+									<input name="btnBorrarCliente" id="btnBorrarCliente" type="button" class="btn btn-default" value="Borrar">
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- Fin Formulario Borrar cliente -->
+				<!-- Formulario Alta Alquiler -->
+				<div class="panel panel-default" id="capaFormAltaAlquiler">
+					<div class="panel-heading ">
+						<h3 class="panel-title">Nuevo alquiler</h3>
+					</div>
+					<div class="panel-body">						
+						<form class="form-horizontal" role="form" name="formAltaAlquiler">
+							<div class="form-group">
+								<label for="dni" class="col-lg-2 control-label">Cliente</label>
+								<div class="col-lg-10">
+									<select id="selectClienteAlquiler" class="form-control" name="selectClienteAlquiler">
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="dni" class="col-lg-2 control-label">Vehiculo</label>
+								<div class="col-lg-10">
+									<select id="selectVehiculoAlquiler" class="form-control" name="selectVehiculoAlquiler">
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">Fecha Salida</label>
+								<div class="col-lg-10 form-inline ">
+									<select class="form-control col-lg-3" name="diaSalidaAlquiler">
+										<option selected="selected" value="">
+											dd
+										</option>
+										<option value="1">
+											01
+										</option>
+										<option value="2">
+											02
+										</option>
+										<option value="3">
+											03
+										</option>
+										<option value="4">
+											04
+										</option>
+										<option value="5">
+											05
+										</option>
+										<option value="6">
+											06
+										</option>
+										<option value="7">
+											07
+										</option>
+										<option value="8">
+											08
+										</option>
+										<option value="9">
+											09
+										</option>
+										<option value="10">
+											10
+										</option>
+										<option value="11">
+											11
+										</option>
+										<option value="12">
+											12
+										</option>
+										<option value="13">
+											13
+										</option>
+										<option value="14">
+											14
+										</option>
+										<option value="15">
+											15
+										</option>
+										<option value="16">
+											16
+										</option>
+										<option value="17">
+											17
+										</option>
+										<option value="18">
+											18
+										</option>
+										<option value="19">
+											19
+										</option>
+										<option value="20">
+											20
+										</option>
+										<option value="21">
+											21
+										</option>
+										<option value="22">
+											22
+										</option>
+										<option value="23">
+											23
+										</option>
+										<option value="24">
+											24
+										</option>
+										<option value="25">
+											25
+										</option>
+										<option value="26">
+											26
+										</option>
+										<option value="27">
+											27
+										</option>
+										<option value="28">
+											28
+										</option>
+										<option value="29">
+											29
+										</option>
+										<option value="30">
+											30
+										</option>
+										<option value="31">
+											31
+										</option>
+									</select>  
+									<select class="form-control  col-lg-3" name="mesSalidaAlquiler">
+										<option selected="selected" value="">
+											mm
+										</option>
+										<option value="1">
+											01
+										</option>
+										<option value="2">
+											02
+										</option>
+										<option value="3">
+											03
+										</option>
+										<option value="4">
+											04
+										</option>
+										<option value="5">
+											05
+										</option>
+										<option value="6">
+											06
+										</option>
+										<option value="7">
+											07
+										</option>
+										<option value="8">
+											08
+										</option>
+										<option value="9">
+											09
+										</option>
+										<option value="10">
+											10
+										</option>
+										<option value="11">
+											11
+										</option>
+										<option value="12">
+											12
+										</option>
+									</select> 
+									<select class="form-control col-lg-4" name="anyoSalidaAlquiler">
+										<option selected="selected" value="">
+											aaaa
+										</option>
+										<option value="2016">
+											2016
+										</option>
+										<option value="2015">
+											2015
+										</option>
+										<option value="2014">
+											2014
+										</option>
+										<option value="2013">
+											2013
+										</option>
+										<option value="2012">
+											2012
+										</option>
+										<option value="2011">
+											2011
+										</option>
+										<option value="2010">
+											2010
+										</option>
+										<option value="2009">
+											2009
+										</option>
+										<option value="2008">
+											2008
+										</option>
+										<option value="2007">
+											2007
+										</option>
+										<option value="2006">
+											2006
+										</option>
+										<option value="2005">
+											2005
+										</option>
+										<option value="2004">
+											2004
+										</option>
+										<option value="2003">
+											2003
+										</option>
+										<option value="2002">
+											2002
+										</option>
+										<option value="2001">
+											2001
+										</option>
+										<option value="2000">
+											2000
+										</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">Fecha Entrada</label>
+								<div class="col-lg-10 form-inline ">
+									<select class="form-control col-lg-3" name="diaEntradaAlquiler">
+										<option selected="selected" value="">
+											dd
+										</option>
+										<option value="1">
+											01
+										</option>
+										<option value="2">
+											02
+										</option>
+										<option value="3">
+											03
+										</option>
+										<option value="4">
+											04
+										</option>
+										<option value="5">
+											05
+										</option>
+										<option value="6">
+											06
+										</option>
+										<option value="7">
+											07
+										</option>
+										<option value="8">
+											08
+										</option>
+										<option value="9">
+											09
+										</option>
+										<option value="10">
+											10
+										</option>
+										<option value="11">
+											11
+										</option>
+										<option value="12">
+											12
+										</option>
+										<option value="13">
+											13
+										</option>
+										<option value="14">
+											14
+										</option>
+										<option value="15">
+											15
+										</option>
+										<option value="16">
+											16
+										</option>
+										<option value="17">
+											17
+										</option>
+										<option value="18">
+											18
+										</option>
+										<option value="19">
+											19
+										</option>
+										<option value="20">
+											20
+										</option>
+										<option value="21">
+											21
+										</option>
+										<option value="22">
+											22
+										</option>
+										<option value="23">
+											23
+										</option>
+										<option value="24">
+											24
+										</option>
+										<option value="25">
+											25
+										</option>
+										<option value="26">
+											26
+										</option>
+										<option value="27">
+											27
+										</option>
+										<option value="28">
+											28
+										</option>
+										<option value="29">
+											29
+										</option>
+										<option value="30">
+											30
+										</option>
+										<option value="31">
+											31
+										</option>
+									</select>  
+									<select class="form-control  col-lg-3" name="mesEntradaAlquiler">
+										<option selected="selected" value="">
+											mm
+										</option>
+										<option value="1">
+											01
+										</option>
+										<option value="2">
+											02
+										</option>
+										<option value="3">
+											03
+										</option>
+										<option value="4">
+											04
+										</option>
+										<option value="5">
+											05
+										</option>
+										<option value="6">
+											06
+										</option>
+										<option value="7">
+											07
+										</option>
+										<option value="8">
+											08
+										</option>
+										<option value="9">
+											09
+										</option>
+										<option value="10">
+											10
+										</option>
+										<option value="11">
+											11
+										</option>
+										<option value="12">
+											12
+										</option>
+									</select> 
+									<select class="form-control col-lg-4" name="anyoEntradaAlquiler">
+										<option selected="selected" value="">
+											aaaa
+										</option>
+										<option value="2016">
+											2016
+										</option>
+										<option value="2015">
+											2015
+										</option>
+										<option value="2014">
+											2014
+										</option>
+										<option value="2013">
+											2013
+										</option>
+										<option value="2012">
+											2012
+										</option>
+										<option value="2011">
+											2011
+										</option>
+										<option value="2010">
+											2010
+										</option>
+										<option value="2009">
+											2009
+										</option>
+										<option value="2008">
+											2008
+										</option>
+										<option value="2007">
+											2007
+										</option>
+										<option value="2006">
+											2006
+										</option>
+										<option value="2005">
+											2005
+										</option>
+										<option value="2004">
+											2004
+										</option>
+										<option value="2003">
+											2003
+										</option>
+										<option value="2002">
+											2002
+										</option>
+										<option value="2001">
+											2001
+										</option>
+										<option value="2000">
+											2000
+										</option>
+
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="kms" class="col-lg-2 control-label">Kms iniciales</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" id="txtKms" name="txtKms"
+									placeholder="Kms iniciales">
+								</div>
+							</div>
+							<div class="form-group" id="capaBtnSelectCliente">
+								<div class="col-lg-offset-2 col-lg-10">
+									<input name="btnAlquiler" id="btnAlquiler" type="button" class="btn btn-default" value="Aceptar">
+								</div>
+							</div>
+						</form>						
+
+					</div>
+				</div>
+				<!-- Fin Formulario Alta Alquiler -->
+
+				<!-- Formulario Borrar Alquiler -->
+				<div class="panel panel-default" id="capaFormSelectAlquilerBorrar">
+					<div class="panel-heading ">
+						<h3 class="panel-title">Eliminar Alquiler</h3>
+					</div>
+					<div class="panel-body">						
+						<form class="form-horizontal" role="form" name="formBorrarAlquiler">
+							<div class="form-group">
+								<label for="dni" class="col-lg-2 control-label">Numero factura</label>
+								<div class="col-lg-10">
+									<select id="selectBorrarAlquiler" class="form-control" name="selectBorrarAlquiler">
+									</select>
+								</div>
+							</div>
+							<div class="form-group" id="capaBtnSelectAlquiler">
+								<div class="col-lg-offset-2 col-lg-10">
+									<input name="btnBorrarAlquiler" id="btnBorrarAlquiler" type="button" class="btn btn-default" value="Borrar">
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- Fin Formulario Borrar Alquiler -->
+				<!-- Formulario Alta vehiculo -->
+				<div class="panel panel-default" id="fv">
+					<div class="panel-heading panelP">
+						<h3 class="panel-title titulo2" id="tituloFormVehiculo">Alta Vehiculo</h3>
+					</div>
+					<div class="panel-body">
+						<form class="form-horizontal" role="form" name="fv1">
+							<div class="form-group">
+								<div class="col-lg-10 col-md-offset-2">
+									<select name="selectTipoV">
+										<option value="Turismo">Turismo</option>
+										<option value="Camion">Camion</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="matricula" class="col-lg-2 control-label">Matricula</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" name="matricula"
+									placeholder="Matricula">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="idSeguro" class="col-lg-2 control-label">idSeguro</label>
+								<div class="col-lg-10">
+									<select class="form-control" name="idSeguro" >
+										<option>Seleccione seguro</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="marca" class="col-lg-2 control-label">Marca</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" name="marca"
+									placeholder="Marca">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="modelo" class="col-lg-2 control-label">Modelo</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" name="modelo"
+									placeholder="Modelo">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="tipoCombustible" class="col-lg-2 control-label">tipoCombustible</label>
+								<div class="col-lg-10">
+									<select class="form-control" name="combustible" name="combustible">
+										<option>Seleccione tipo de Combustible</option>
+										<option value="gasolina" >gasolina</option>
+										<option value="diesel">Diesel</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-2 control-label" for="birthday">Fecha de Adquisicion:</label>
+
+								<div class="col-lg-10 form-inline ">
+									<!--== AQUI ===-->
+									<select class="form-control col-lg-3" name="day">
+										<option selected="selected" value="">
+											dd
+										</option>
+										<option value="1">
+											01
+										</option>
+										<option value="2">
+											02
+										</option>
+										<option value="3">
+											03
+										</option>
+										<option value="4">
+											04
+										</option>
+										<option value="5">
+											05
+										</option>
+										<option value="6">
+											06
+										</option>
+										<option value="7">
+											07
+										</option>
+										<option value="8">
+											08
+										</option>
+										<option value="9">
+											09
+										</option>
+										<option value="10">
+											10
+										</option>
+										<option value="11">
+											11
+										</option>
+										<option value="12">
+											12
+										</option>
+										<option value="13">
+											13
+										</option>
+										<option value="14">
+											14
+										</option>
+										<option value="15">
+											15
+										</option>
+										<option value="16">
+											16
+										</option>
+										<option value="17">
+											17
+										</option>
+										<option value="18">
+											18
+										</option>
+										<option value="19">
+											19
+										</option>
+										<option value="20">
+											20
+										</option>
+										<option value="21">
+											21
+										</option>
+										<option value="22">
+											22
+										</option>
+										<option value="23">
+											23
+										</option>
+										<option value="24">
+											24
+										</option>
+										<option value="25">
+											25
+										</option>
+										<option value="26">
+											26
+										</option>
+										<option value="27">
+											27
+										</option>
+										<option value="28">
+											28
+										</option>
+										<option value="29">
+											29
+										</option>
+										<option value="30">
+											30
+										</option>
+										<option value="31">
+											31
+										</option>
+									</select>  <select class="form-control  col-lg-3" name="month"> <!--== AQUI ===-->
+									<option selected="selected" value="">
+										mm
+									</option>
+									<option value="1">
+										01
+									</option>
+									<option value="2">
+										02
+									</option>
+									<option value="3">
+										03
+									</option>
+									<option value="4">
+										04
+									</option>
+									<option value="5">
+										05
+									</option>
+									<option value="6">
+										06
+									</option>
+									<option value="7">
+										07
+									</option>
+									<option value="8">
+										08
+									</option>
+									<option value="9">
+										09
+									</option>
+									<option value="10">
+										10
+									</option>
+									<option value="11">
+										11
+									</option>
+									<option value="12">
+										12
+									</option>
+								</select> <select class="form-control col-lg-4" name="year"> <!--== AQUI ===-->
+								<option selected="selected" value="">
+									aaaa
+								</option>
+								<option value="2016">
+									2016
+								</option>
+								<option value="2015">
+									2015
+								</option>
+								<option value="2014">
+									2014
+								</option>
+								<option value="2013">
+									2013
+								</option>
+								<option value="2012">
+									2012
+								</option>
+								<option value="2011">
+									2011
+								</option>
+								<option value="2010">
+									2010
+								</option>
+								<option value="2009">
+									2009
+								</option>
+								<option value="2008">
+									2008
+								</option>
+								<option value="2007">
+									2007
+								</option>
+								<option value="2006">
+									2006
+								</option>
+								<option value="2005">
+									2005
+								</option>
+								<option value="2004">
+									2004
+								</option>
+								<option value="2003">
+									2003
+									<option value="2001">
+										2001
+									</option>
+									<option value="2000">
+										2000
+									</option>
+
+								</select>
+							</div>
+
+						</div>
+						<div class="form-group">
+							<label for="numPlazas" id="tipoV" class="col-lg-2 control-label">NumPlazas</label>
+							<div class="col-lg-10">
+								<input type="text" class="form-control" id="tipoV2" name="numPlaza"
+								placeholder="numPlazas">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-lg-offset-2 col-lg-10">
+								<input type="button" name="btnAltaVehiculo" id="tipoV2" class="btn btn-default" value="Dar de Alta">
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+
+		<!-- Formulario Modificacion vehiculo -->
+		<div class="panel panel-default" id="fmodV">
+			<div class="panel-heading ">
+				<h3 class="panel-title">Modificacion Vehiculo</h3>
+			</div>
+			<div class="panel-body">
+				<form class="form-horizontal" role="form" name="fmv">
+					<div class="form-group">
+						<label for="matricula" class="col-lg-2 control-label">Matricula</label>
+						<div class="col-lg-10">
+							<select name="vehiculosModificar" class="form-control">
+
+							</select>
+						</div>
+					</div>
+				</form>
+
+			</div>
+		</div>
+
+		<!-- Fin Formulario Modificacion vehiculo  -->
+		<!-- Formulario Borrar vehiculo -->
+
+		<div class="panel panel-default" id="fborrV">
+			<div class="panel-heading ">
+				<h3 class="panel-title">Borrar Vehiculo</h3>
+			</div>
+			<div class="panel-body">
+				<form class="form-horizontal" role="form" name="fbv">
+					<div class="form-group">
+						<label for="dni" class="col-lg-2 control-label">Matricula</label>
+						<div class="col-lg-10">
+							<select id="vehiculosBorrar" class="form-control" name="selectBorrarVehiculo">
+								<option value="">Selecciona Vehiculo</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group" id="capaBtnSelectVehiculo">
+						<div class="col-lg-offset-2 col-lg-10">
+							<input name="btnBorrarVehiculo" id="btnBorrarVehiculo" type="button" class="btn btn-default" value="Borrar">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+
+		<!-- Fin Formulario Borrar vehiculo  -->
+
+
+		<!-- Formulario Alta Seguro -->
+		<div class="panel panel-default" id="faltaS">
+			<div class="panel-heading ">
+				<h3 class="panel-title" id="tituloFormSeguro">Alta Seguro</h3>
+			</div>
+			<div class="panel-body">
+				<form class="form-horizontal" role="form" name="fs">
+					<div class="form-group">
+						<label for="idSeguro" class="col-lg-2 control-label">IdSeguro</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" name="idSeguro"
+							placeholder="IdSeguro">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="descripcion" class="col-lg-2 control-label">Descripción</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" name="descripcion"
+							placeholder="Descripcion">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="precio" class="col-lg-2 control-label">Precio</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" name="precio"
+							placeholder="precio">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-lg-offset-2 col-lg-10">
+							<input type="button" name="btnAltaSeguro" class="btn btn-default" value="Dar de Alta">
+						</div>
+					</div>
+				</form>
+
+			</div>
+		</div>
+
+		<!-- Fin Formulario Alta Seguro  -->
+
+		<!-- Formulario Modificacion Seguro -->
+		<div class="panel panel-default" id="fmodS">
+			<div class="panel-heading ">
+				<h3 class="panel-title">Modificacion Seguro</h3>
+			</div>
+			<div class="panel-body">
+				<form class="form-horizontal" role="form" name="fms">
+					<div class="form-group">
+						<label for="idSeguro" class="col-lg-2 control-label">IdSeguro</label>
+						<div class="col-lg-10">
+							<select name="segurosModificar" class="form-control">
+
+							</select>
+						</div>
+					</div>
+				</form>
+
+			</div>
+		</div>
+		<!-- Fin Formulario Modificacion Seguro  -->
+		<!-- Formulario Borrar Seguro -->
+
+		<div class="panel panel-default" id="fborrS">
+			<div class="panel-heading ">
+				<h3 class="panel-title">Borrar Seguro</h3>
+			</div>
+			<div class="panel-body">
+				<form class="form-horizontal" role="form" name="fbs">
+					<div class="form-group">
+						<label for="idSeguro" class="col-lg-2 control-label">idSeguro</label>
+						<div class="col-lg-10">
+							<select id="segurosBorrar" class="form-control" name="selectBorrarSeguro">
+								<option value="">Selecciona Seguro</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group" id="capaBtnSelectSeguro">
+						<div class="col-lg-offset-2 col-lg-10">
+							<input name="btnBorrarVSeguro" id="btnBorrarSeguro" type="button" class="btn btn-default" value="Borrar">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- Fin Formulario Borrar Seguro  -->
+		
+
+	</div>
+	<div class="col-xs-5 col-offset-sm-4 col-sm-5 bounceInUp" id="mensaje">
+		<div class="panel panel-danger">
+
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bounceIn animated" id="listados">
+
+	</div>
+</div>
+</div>
+<!-- Jquery -->
+<script src="jquery/jquery-1.11.0.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="bootstrap-3.3.5-dist/js/bootstrap.js"></script>
+</body>
+
+</html>

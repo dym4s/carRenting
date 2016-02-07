@@ -1,0 +1,27 @@
+.titulo{
+	font-family: Vivaldi;
+	font-size: 48pt;
+
+}
+
+#formularioCliente,#formularioSelectCliente,#aMostrarSelectCliente,#fv,#fmodV,#fborrV,#faltaS,#fmodS,#fborrS,#capaFormSelectCliente,#capaFormSelectClienteBorrar, #capaFormAltaAlquiler, #lblCif, #capaFormSelectAlquilerBorrar{
+	display: none;
+}
+
+.error {
+	background-color:yellow;
+}
+
+#mensaje{
+	display: none;
+}
+
+.animado{
+	transition: all 10s;
+	opacity:0.5;
+}
+
+@keyframes anim{
+    from {opacity: 0.1;}
+    to {opacity: 1.0;}
+}

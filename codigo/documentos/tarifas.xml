@@ -1,0 +1,44 @@
+<tarifas>
+	<tarifa>
+		<tipoCoche>1</tipoCoche>
+		<diasMin>1</diasMin>
+		<diasMax>5</diasMax>
+		<precioDia>3</precioDia>
+	</tarifa>
+
+	<tarifa>
+		<tipoCoche>1</tipoCoche>
+		<diasMin>6</diasMin>
+		<diasMax>10</diasMax>
+		<precioDia>2,5</precioDia>
+	</tarifa>
+
+	<tarifa>
+		<tipoCoche>1</tipoCoche>
+		<diasMin>10</diasMin>
+		<diasMax>0</diasMax>
+		<precioDia>2</precioDia>
+	</tarifa>
+
+	<tarifa>
+		<tipoCoche>2</tipoCoche>
+		<diasMin>1</diasMin>
+		<diasMax>5</diasMax>
+		<precioDia>4</precioDia>
+	</tarifa>
+
+	<tarifa>
+		<tipoCoche>2</tipoCoche>
+		<diasMin>6</diasMin>
+		<diasMax>10</diasMax>
+		<precioDia>3,5</precioDia>
+	</tarifa>
+
+	<tarifa>
+		<tipoCoche>2</tipoCoche>
+		<diasMin>10</diasMin>
+		<diasMax>0</diasMax>
+		<precioDia>3</precioDia>
+	</tarifa>
+
+</tarifas>
