@@ -1766,9 +1766,11 @@ function listarVehiculosDiponibles () {
 	ocultarChildrenListados();
 	var capaListado=document.getElementById("listados");
 	var filaCabeza=new Array("Matricula","ID_Seguro","Marca","Modelo","Combustible","Fecha_Adquisicion","NumPlazas/Carga");
-	vehiculos=oCarRenting.vehiculos;
+	var vehiculos=oCarRenting.vehiculos;
 	alquileres=oCarRenting.alquileres;
-	var lista=vehiculos;
+	var lista = vehiculos.slice();
+
+	
 
     //vehiculos no alquilados
    for (var i = 0; i < vehiculos.length; i++) {
